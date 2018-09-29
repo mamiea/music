@@ -20,7 +20,7 @@ const gif = require("gif-search");
 
 const client = new Discord.Client({disableEveryone: true});
 
-const prefix = "!";
+const prefix = "-";
 /////////////////////////
 ////////////////////////
 
@@ -341,6 +341,12 @@ client.on('message', message => {
       message.channel.send(helpEmbed);
     }
 });
+
+client.on('ready', () => {
+    console.log(`Logged in as ${client.user.tag} !`);
+          client.user.setActivity("-help hypixel3rb bot ",{type: 'WATCHING'});
+  
+  });
 
 client.login(process.env.BOT_TOKEN);
 
